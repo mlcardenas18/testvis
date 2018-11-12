@@ -53,7 +53,7 @@ d3.csv("resultstestvis.csv", function (err, data) {
 
 
 
-  y.domain(data.map(function(d) { return d.question; }));
+  y.domain(data.map(function(d) { return d.tarea; }));
   x.domain([d3.min(series, stackMin), d3.max(series, stackMax)]);
 
   svg.append("g")
@@ -65,7 +65,7 @@ d3.csv("resultstestvis.csv", function (err, data) {
     .data(function(d) { return d; })
     .enter().append("rect")
       .attr("height", y.bandwidth)
-      .attr("y", function(d) { return y(d.data.question); })
+      .attr("y", function(d) { return y(d.data.tarea); })
       .attr("x", function(d) { return x(d[0]); })
       .attr("width", function(d) { return x(d[1]) - x(d[0]); })
 
